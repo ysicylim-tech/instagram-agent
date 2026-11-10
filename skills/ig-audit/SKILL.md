@@ -9,6 +9,23 @@ description: >-
 
 # ig-audit
 
+## Codex execution
+
+Resolve scripts and JSON resources relative to this SKILL.md, never the
+project working directory. Invoke scripts by their absolute paths with a
+Python 3 interpreter and `-X utf8` (use `python3` or `py -3` if needed).
+Examples below abbreviate the script path. Use absolute input/output paths
+and UTF-8 text files; expand `~` to the user's home directory.
+
+Shared profile, plan, log and swipe files live in `~/.codex/instagram/`;
+create that directory before writing. To hand work to `$ig-*`, read the
+corresponding sibling skill's SKILL.md and follow it; do not execute a slash
+command or assume a Claude tool exists. Use available search/browser tools
+when research is needed; if access or data is missing, request supplied
+material and disclose the limitation rather than inventing results.
+Drafting content does not authorize posting, sending DMs or comments.
+
+
 The only reliable source on what works for an account is the account itself.
 Every rule in every Instagram guide, this pack included, is a starting guess.
 The user's last 30 posts are the actual evidence.
@@ -24,7 +41,7 @@ Ask for whatever the user has:
   screenshot is worth more than everything else put together.
 - Or just the posts with their view counts, which is enough to start.
 
-Also read `~/.claude/instagram/log.md` if it's there, since it records which
+Also read `~/.codex/instagram/log.md` if it's there, since it records which
 hook formula each post used.
 
 ## What to measure
@@ -69,7 +86,7 @@ up.
 **A reel that gets views but no follows didn't fail. That's a profile problem.**
 A reel that gets no views is a hook problem. Separate the two before you
 recommend anything. If non-follower reach is high and follows per reach is low,
-stop rewriting hooks and go to `/ig-profile`.
+stop rewriting hooks and go to `$ig-profile`.
 
 ## Output
 
@@ -99,6 +116,6 @@ STOP: listicles.
 DO MORE: posts with a cost you paid and a number attached.
 ```
 
-Then pass the conclusions to `/ig-plan`, so next week is built on the user's own
-data instead of defaults, and to `/ig-viral`, so the swipe file gets narrowed to
+Then pass the conclusions to `$ig-plan`, so next week is built on the user's own
+data instead of defaults, and to `$ig-viral`, so the swipe file gets narrowed to
 the formulas that work for this particular account.

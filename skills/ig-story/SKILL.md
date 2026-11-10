@@ -10,6 +10,23 @@ description: >-
 
 # ig-story
 
+## Codex execution
+
+Resolve scripts and JSON resources relative to this SKILL.md, never the
+project working directory. Invoke scripts by their absolute paths with a
+Python 3 interpreter and `-X utf8` (use `python3` or `py -3` if needed).
+Examples below abbreviate the script path. Use absolute input/output paths
+and UTF-8 text files; expand `~` to the user's home directory.
+
+Shared profile, plan, log and swipe files live in `~/.codex/instagram/`;
+create that directory before writing. To hand work to `$ig-*`, read the
+corresponding sibling skill's SKILL.md and follow it; do not execute a slash
+command or assume a Claude tool exists. Use available search/browser tools
+when research is needed; if access or data is missing, request supplied
+material and disclose the limitation rather than inventing results.
+Drafting content does not authorize posting, sending DMs or comments.
+
+
 Stories aren't a mini feed. The feed is how strangers find you. Stories are
 where people who already follow you decide whether you're someone worth buying
 from, and they're the only place on Instagram where one tap becomes a
@@ -46,7 +63,7 @@ ask should reach the ones still watching.
 | **Add yours** | occasional reach beyond followers | the prompt is something anyone in the niche can answer |
 
 The question box is the most underrated one here. Every answer is a caption, a
-Reel hook or a DM opener in the audience's own words. Pass them to `/ig-reel` as
+Reel hook or a DM opener in the audience's own words. Pass them to `$ig-reel` as
 formula #16.
 
 ## Rules

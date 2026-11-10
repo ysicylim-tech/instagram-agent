@@ -10,6 +10,23 @@ description: >-
 
 # ig-dm
 
+## Codex execution
+
+Resolve scripts and JSON resources relative to this SKILL.md, never the
+project working directory. Invoke scripts by their absolute paths with a
+Python 3 interpreter and `-X utf8` (use `python3` or `py -3` if needed).
+Examples below abbreviate the script path. Use absolute input/output paths
+and UTF-8 text files; expand `~` to the user's home directory.
+
+Shared profile, plan, log and swipe files live in `~/.codex/instagram/`;
+create that directory before writing. To hand work to `$ig-*`, read the
+corresponding sibling skill's SKILL.md and follow it; do not execute a slash
+command or assume a Claude tool exists. Use available search/browser tools
+when research is needed; if access or data is missing, request supplied
+material and disclose the limitation rather than inventing results.
+Drafting content does not authorize posting, sending DMs or comments.
+
+
 DMs are the only place on Instagram where money actually changes hands, and
 they're also where most accounts throw away the goodwill their content built.
 The whole difference comes down to who made the first move.
@@ -114,5 +131,5 @@ Then stop. A third message wins nobody over and costs the relationship.
 ## Output
 
 The message, its character count, and the two follow-ups with the day each one
-goes out, all run through `/ig-human`. The user sends every one by hand, or
+goes out, all run through `$ig-human`. The user sends every one by hand, or
 through their own approved automation for keyword replies only.

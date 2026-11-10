@@ -9,6 +9,23 @@ description: >-
 
 # ig-carousel
 
+## Codex execution
+
+Resolve scripts and JSON resources relative to this SKILL.md, never the
+project working directory. Invoke scripts by their absolute paths with a
+Python 3 interpreter and `-X utf8` (use `python3` or `py -3` if needed).
+Examples below abbreviate the script path. Use absolute input/output paths
+and UTF-8 text files; expand `~` to the user's home directory.
+
+Shared profile, plan, log and swipe files live in `~/.codex/instagram/`;
+create that directory before writing. To hand work to `$ig-*`, read the
+corresponding sibling skill's SKILL.md and follow it; do not execute a slash
+command or assume a Claude tool exists. Use available search/browser tools
+when research is needed; if access or data is missing, request supplied
+material and disclose the limitation rather than inventing results.
+Drafting content does not authorize posting, sending DMs or comments.
+
+
 Carousels hold attention longer than anything else on the grid, because a swipe
 counts as an interaction and a scroll doesn't. They also get a second shot:
 Instagram can re-show a carousel from a later slide to someone who skipped it
@@ -23,7 +40,7 @@ Go with a carousel when the idea **has an order and needs re-reading**: steps, a
 framework with parts, a before and after, a list worth screenshotting. Go with a
 Reel when the idea has movement, a face, or a payoff people need to see happen.
 
-If the idea is a single claim, it's neither. Pass it to `/ig-reel` and say why.
+If the idea is a single claim, it's neither. Pass it to `$ig-reel` and say why.
 
 ## Structure
 
@@ -78,10 +95,10 @@ inventing a palette.
 
 First the copy, slide by slide, as a numbered list the user can scan in ten
 seconds and edit before anything gets rendered. Then the **caption**, which for
-a carousel is Job B in `/ig-caption`: the caption has real work to do here,
+a carousel is Job B in `$ig-caption`: the caption has real work to do here,
 because the cover already spent its six words.
 
-Put both through `/ig-human`. Only build the files once the user signs off on the
+Put both through `$ig-human`. Only build the files once the user signs off on the
 copy.
 
 ```

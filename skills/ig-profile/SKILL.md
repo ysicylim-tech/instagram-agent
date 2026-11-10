@@ -10,6 +10,23 @@ description: >-
 
 # ig-profile
 
+## Codex execution
+
+Resolve scripts and JSON resources relative to this SKILL.md, never the
+project working directory. Invoke scripts by their absolute paths with a
+Python 3 interpreter and `-X utf8` (use `python3` or `py -3` if needed).
+Examples below abbreviate the script path. Use absolute input/output paths
+and UTF-8 text files; expand `~` to the user's home directory.
+
+Shared profile, plan, log and swipe files live in `~/.codex/instagram/`;
+create that directory before writing. To hand work to `$ig-*`, read the
+corresponding sibling skill's SKILL.md and follow it; do not execute a slash
+command or assume a Claude tool exists. Use available search/browser tools
+when research is needed; if access or data is missing, request supplied
+material and disclose the limitation rather than inventing results.
+Drafting content does not authorize posting, sending DMs or comments.
+
+
 Most people polish the wrong part of their profile. Nobody browses it like a
 shop window. They land on it from a single reel, and it has roughly three
 seconds to answer one thing: is there more of what I just watched, and is it
@@ -77,7 +94,7 @@ makes the whole grid readable at a glance.
 ## Output
 
 The score table first, then each rewrite as a copy-ready block in fix-first
-order, all of them passed through `/ig-human`. Re-grade at the end and report
+order, all of them passed through `$ig-human`. Re-grade at the end and report
 the change honestly. If the new version reaches 84 and not 98, say 84, and
 explain what's left. Usually that's a grid, a regular stories habit and a pinned
 post that hasn't been made yet, and none of those are a rewrite.

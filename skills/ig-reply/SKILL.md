@@ -9,6 +9,23 @@ description: >-
 
 # ig-reply
 
+## Codex execution
+
+Resolve scripts and JSON resources relative to this SKILL.md, never the
+project working directory. Invoke scripts by their absolute paths with a
+Python 3 interpreter and `-X utf8` (use `python3` or `py -3` if needed).
+Examples below abbreviate the script path. Use absolute input/output paths
+and UTF-8 text files; expand `~` to the user's home directory.
+
+Shared profile, plan, log and swipe files live in `~/.codex/instagram/`;
+create that directory before writing. To hand work to `$ig-*`, read the
+corresponding sibling skill's SKILL.md and follow it; do not execute a slash
+command or assume a Claude tool exists. Use available search/browser tools
+when research is needed; if access or data is missing, request supplied
+material and disclose the limitation rather than inventing results.
+Drafting content does not authorize posting, sending DMs or comments.
+
+
 The comments under your own post are where its reach gets decided. Each reply
 adds another interaction, replies in the first hour do most of the lifting, and
 on Instagram you can reply with a whole Reel, which is the most underused move
@@ -43,7 +60,7 @@ If a comment asks something thirty other people are also wondering, **answer it
 with a Reel**. Instagram pins the comment to the new video as a sticker, the
 person who asked gets a notification, and a question people clearly want
 answered becomes a post with its hook already written. Flag every QUESTION that
-fits and pass it to `/ig-reel` as formula #16.
+fits and pass it to `$ig-reel` as formula #16.
 
 ## How to reply
 

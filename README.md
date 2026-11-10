@@ -1,6 +1,6 @@
 # The Instagram agent skill, by NateGold
 
-Thirteen Claude skills that help you run an Instagram account. Free, MIT
+Thirteen Codex and Claude skills that help you run an Instagram account. Free, MIT
 licensed, no signup, no API key, nothing to connect.
 
 One writes your Reels from 26 hook formulas and scores the hook before you film
@@ -17,56 +17,64 @@ a draft, then scores what's left on a five-check panel before you see it.
 
 ## Install
 
-Paste this into Claude:
+### Codex (Windows, macOS, Linux)
 
-```
-https://github.com/nategoldai/instagram-agent
+Requires Python 3.10+ and Git. Run:
 
-Install this skill, then confirm /ig-reel works.
-```
-
-Or do it yourself, in Claude Code:
-
-```bash
-git clone https://github.com/nategoldai/instagram-agent.git
-cp -r instagram-agent/skills/ig-* ~/.claude/skills/
+```sh
+git clone https://github.com/ysicylim-tech/instagram-agent.git
+cd instagram-agent
+git checkout codex-support
+python -X utf8 install_codex.py
 ```
 
-Or as a plugin:
+The installer copies all 13 skills, including scripts and JSON resources, to
+`~/.codex/skills`. It refuses to overwrite existing skills. To use a custom
+Codex home, pass `--codex-home /absolute/path` (or set `CODEX_HOME`).
+On Windows, use `py -3` if `python` is unavailable; on macOS/Linux, use
+`python3` if needed. No third-party Python packages are required.
 
+Start a new Codex session and ask `$ig-reel write a reel about ...` or
+`$ig-caption write a caption about ...`. Cross-skill references use `$ig-*`.
+Data lives in `~/.codex/instagram/`; copy `templates/voice.md` there as
+`voice.md` and fill it in. With a custom Codex home, the skills still use
+`~/.codex/instagram/` for shared data. Scripts must be invoked by absolute
+path using `python -X utf8`, so they also work outside the skill folder.
+
+Run the offline compatibility checks with:
+
+```sh
+python -X utf8 -m unittest discover -s tests -v
 ```
-/plugin marketplace add nategoldai/instagram-agent
-/plugin install instagram-agent
-```
 
-Want it for one project only? Copy the same folders into that repo's
-`.claude/skills/`. Not using Claude Code? Paste any single `SKILL.md` at the
-start of a chat and it works as a mode. You lose the five Python tools, which
-are most of the value of `/ig-reel` and `/ig-human`, but everything else works.
+The scoring tools and lexicons are primarily English. UTF-8 support does not
+make their English heuristics reliable for Korean or other languages.
+Instagram research needs an available browser/search tool or supplied data.
+Nothing is published automatically.
 
-Next, spend ten minutes on `templates/voice.md`. Copy it to
-`~/.claude/instagram/voice.md` and fill it in, or send Claude three of your own
-reels and say "write my voice.md from these". Every skill reads that file, and
-it matters more on Instagram than anywhere else, because you have to say the
-words out loud.
+### Claude Code
+
+The plugin metadata is retained. In this fork, shared data paths and skill
+references target Codex; use the upstream repository for unchanged Claude
+behavior: https://github.com/nategoldai/instagram-agent.
 
 ## The 13 skills
 
 | command | what it does |
 | --- | --- |
-| `/ig-reel` | Turns one idea into a Reel. Three hooks from [26 formulas](skills/ig-reel/hooks.json), scored, then the script, the on-screen text and a timed beat sheet. |
-| `/ig-viral` | Finds what's working in your niche, ranks it against each account's own median, names the formula, and writes a swipe file. |
-| `/ig-caption` | Writes and checks the caption. Shows you the 125 characters the feed displays before the tap. |
-| `/ig-carousel` | Swipe posts: a cover that earns the swipe, copy for every slide, and the 1080x1350 files. |
-| `/ig-story` | Your daily story sequence, which sticker does what, and a DM funnel where they reach out first. |
-| `/ig-profile` | Grades your profile on a [12-part rubric](skills/ig-profile/rubric.json) out of 100, then rewrites the biggest problems first. |
-| `/ig-plan` | Your week: what to post, which format, when, and 10 accounts to engage with. |
-| `/ig-human` | The humanizer. Two scripts that really run. More below. |
-| `/ig-comment` | Comments on other people's posts. Nine types, chosen by what the post really is. Never "🔥🔥🔥". |
-| `/ig-reply` | Comments on your own posts. Sorts them into keyword / lead / substance / question / support / noise, then replies in that order. |
-| `/ig-dm` | Keyword deliveries, first messages, collab pitches, and the two follow-ups. Only two. |
-| `/ig-repurpose` | Turns one video, podcast or newsletter into a week of standalone reels and carousels. |
-| `/ig-audit` | Reviews what you've already posted. Ranks by outlier multiple and sends per reach, not views. |
+| `$ig-reel` | Turns one idea into a Reel. Three hooks from [26 formulas](skills/ig-reel/hooks.json), scored, then the script, the on-screen text and a timed beat sheet. |
+| `$ig-viral` | Finds what's working in your niche, ranks it against each account's own median, names the formula, and writes a swipe file. |
+| `$ig-caption` | Writes and checks the caption. Shows you the 125 characters the feed displays before the tap. |
+| `$ig-carousel` | Swipe posts: a cover that earns the swipe, copy for every slide, and the 1080x1350 files. |
+| `$ig-story` | Your daily story sequence, which sticker does what, and a DM funnel where they reach out first. |
+| `$ig-profile` | Grades your profile on a [12-part rubric](skills/ig-profile/rubric.json) out of 100, then rewrites the biggest problems first. |
+| `$ig-plan` | Your week: what to post, which format, when, and 10 accounts to engage with. |
+| `$ig-human` | The humanizer. Two scripts that really run. More below. |
+| `$ig-comment` | Comments on other people's posts. Nine types, chosen by what the post really is. Never "🔥🔥🔥". |
+| `$ig-reply` | Comments on your own posts. Sorts them into keyword / lead / substance / question / support / noise, then replies in that order. |
+| `$ig-dm` | Keyword deliveries, first messages, collab pitches, and the two follow-ups. Only two. |
+| `$ig-repurpose` | Turns one video, podcast or newsletter into a week of standalone reels and carousels. |
+| `$ig-audit` | Reviews what you've already posted. Ranks by outlier multiple and sends per reach, not views. |
 
 ## The five tools that really run
 
@@ -197,7 +205,7 @@ After `humanize.py`, with the flagged structures still unrewritten:
 ### The swipe file
 
 ```bash
-python3 swipe.py captured.tsv --out ~/.claude/instagram/swipe.md
+python3 swipe.py captured.tsv --out ~/.codex/instagram/swipe.md
 ```
 
 Raw views are not evidence. A 2,000,000-follower account doing 400,000 views
@@ -263,7 +271,7 @@ Spoken hooks say their numbers out loud.
 If you re-run this on a bigger or cleaner set and get a different answer, open
 an issue. The measurement script is not in the repo because it depends
 on `yt-dlp`, but the method is four lines and is written out in
-[`/ig-viral`](skills/ig-viral/SKILL.md).
+[`$ig-viral`](skills/ig-viral/SKILL.md).
 
 ## The fine print, which is the honest part
 
@@ -279,9 +287,9 @@ the design, and it is why the approval gate is real rather than a setting.
 
 The one exception is keyword auto-replies in DMs, which Instagram supports
 through its own tools and approved partners, and which only fire after somebody
-comments first. `/ig-dm` says where that line is.
+comments first. `$ig-dm` says where that line is.
 
-**`/ig-viral` reads, it does not scrape.** Ten accounts, a dozen reels each, at
+**`$ig-viral` reads, it does not scrape.** Ten accounts, a dozen reels each, at
 human speed, with you driving your own browser. It never asks for your password
 and never logs in as you. Automated collection at volume is the thing that gets
 accounts restricted, and a crawler is not what this is.

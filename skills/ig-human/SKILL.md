@@ -11,13 +11,30 @@ description: >-
 
 # ig-human
 
+## Codex execution
+
+Resolve scripts and JSON resources relative to this SKILL.md, never the
+project working directory. Invoke scripts by their absolute paths with a
+Python 3 interpreter and `-X utf8` (use `python3` or `py -3` if needed).
+Examples below abbreviate the script path. Use absolute input/output paths
+and UTF-8 text files; expand `~` to the user's home directory.
+
+Shared profile, plan, log and swipe files live in `~/.codex/instagram/`;
+create that directory before writing. To hand work to `$ig-*`, read the
+corresponding sibling skill's SKILL.md and follow it; do not execute a slash
+command or assume a Claude tool exists. Use available search/browser tools
+when research is needed; if access or data is missing, request supplied
+material and disclose the limitation rather than inventing results.
+Drafting content does not authorize posting, sending DMs or comments.
+
+
 There are two tools in this folder and both of them really run. Use them. Don't
 judge this by eye.
 
 ```bash
-python3 humanize.py draft.txt --report        # clean it, show what changed
-python3 detect.py draft.txt                    # score it, five checks
-python3 detect.py before.txt after.txt         # show the improvement
+python -X utf8 humanize.py draft.txt --report        # clean it, show what changed
+python -X utf8 detect.py draft.txt                    # score it, five checks
+python -X utf8 detect.py before.txt after.txt         # show the improvement
 ```
 
 Both read `slop.json`: 154 stock words and phrases with plain-English swaps, 18

@@ -10,20 +10,37 @@ description: >-
 
 # ig-reel
 
+## Codex execution
+
+Resolve scripts and JSON resources relative to this SKILL.md, never the
+project working directory. Invoke scripts by their absolute paths with a
+Python 3 interpreter and `-X utf8` (use `python3` or `py -3` if needed).
+Examples below abbreviate the script path. Use absolute input/output paths
+and UTF-8 text files; expand `~` to the user's home directory.
+
+Shared profile, plan, log and swipe files live in `~/.codex/instagram/`;
+create that directory before writing. To hand work to `$ig-*`, read the
+corresponding sibling skill's SKILL.md and follow it; do not execute a slash
+command or assume a Claude tool exists. Use available search/browser tools
+when research is needed; if access or data is missing, request supplied
+material and disclose the limitation rather than inventing results.
+Drafting content does not authorize posting, sending DMs or comments.
+
+
 Turns one rough idea into a Reel people actually watch to the end.
 
 There are two tools in this folder and both really run. Use them. Don't guess
 whether the hook is good, and don't guess the length.
 
 ```bash
-python3 hookscore.py hooks.txt              # rank your hook options
-python3 hookscore.py --hook "one line"      # score just one
-python3 beats.py script.txt --target 30     # timed beat sheet before filming
+python -X utf8 hookscore.py hooks.txt              # rank your hook options
+python -X utf8 hookscore.py --hook "one line"      # score just one
+python -X utf8 beats.py script.txt --target 30     # timed beat sheet before filming
 ```
 
 ## Before writing
 
-1. Read `~/.claude/instagram/voice.md` if it exists. It's the user's voice
+1. Read `~/.codex/instagram/voice.md` if it exists. It's the user's voice
    profile: how they talk on camera, what they'd never say, who they're talking
    to. If it's missing, ask for **three of their own reels**, transcribe or read
    them, work out the voice, and write the file. A script in the wrong voice is
@@ -35,7 +52,7 @@ python3 beats.py script.txt --target 30     # timed beat sheet before filming
 3. If the idea is thin, don't pad it out. Ask one combined question: what
    happened, to who, and what did it cost or earn. A Reel needs one specific
    true thing. Get it before you write.
-4. If `~/.claude/instagram/swipe.md` exists, read it. `/ig-viral` writes it, and
+4. If `~/.codex/instagram/swipe.md` exists, read it. `$ig-viral` writes it, and
    it's the user's own proof of which formulas are working in their niche right
    now. It outranks the defaults in this file.
 
@@ -72,7 +89,7 @@ user really talks. Contractions. Short lines. Nothing they'd need to rehearse.
 hook longer than 3 seconds, any beat over 4 seconds, a stretch of beats with
 nothing concrete, no loop. Run it again until it's clean.
 
-**5. Humanize it.** Pass the script through `/ig-human` before showing it. A
+**5. Humanize it.** Pass the script through `$ig-human` before showing it. A
 line that sounds written is obvious the second someone says it out loud.
 
 **6. Print the block.** The script in a fenced block, the on-screen text as its
@@ -84,14 +101,14 @@ hook:       #3 Nobody Tells You, scored 86 STRONG
 length:     28.4s across 9 beats at 165 wpm
 on-screen:  6 cards
 humanizer:  4 artefacts stripped, human score 81 PASS
-caption:    run /ig-caption next
+caption:    run $ig-caption next
 
 Reply "yes" to log it, or tell me what to change.
 ```
 
 **7. Never publish.** This skill makes a script. The user films it and posts
-it. On "yes", add a line to `~/.claude/instagram/log.md` with the date, the hook
-formula and the first line, so `/ig-audit` has a history to work from later.
+it. On "yes", add a line to `~/.codex/instagram/log.md` with the date, the hook
+formula and the first line, so `$ig-audit` has a history to work from later.
 
 ## On-screen text is its own script
 
@@ -126,7 +143,7 @@ Write it separately every time. People read it before they hear anything.
 ## Example
 
 ```
-/ig-reel we cut proposal time from 5 hours to 20 minutes with one template
+$ig-reel we cut proposal time from 5 hours to 20 minutes with one template
 ```
 
 ```

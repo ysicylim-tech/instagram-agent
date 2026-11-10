@@ -11,13 +11,30 @@ description: >-
 
 # ig-viral
 
+## Codex execution
+
+Resolve scripts and JSON resources relative to this SKILL.md, never the
+project working directory. Invoke scripts by their absolute paths with a
+Python 3 interpreter and `-X utf8` (use `python3` or `py -3` if needed).
+Examples below abbreviate the script path. Use absolute input/output paths
+and UTF-8 text files; expand `~` to the user's home directory.
+
+Shared profile, plan, log and swipe files live in `~/.codex/instagram/`;
+create that directory before writing. To hand work to `$ig-*`, read the
+corresponding sibling skill's SKILL.md and follow it; do not execute a slash
+command or assume a Claude tool exists. Use available search/browser tools
+when research is needed; if access or data is missing, request supplied
+material and disclose the limitation rather than inventing results.
+Drafting content does not authorize posting, sending DMs or comments.
+
+
 The research skill. Everything else in the pack writes; this one goes out and
 looks. Run it once a month, not every day. Formulas last about a season.
 
 There's one tool in this folder and it runs:
 
 ```bash
-python3 swipe.py captured.tsv --out ~/.claude/instagram/swipe.md
+python -X utf8 swipe.py captured.tsv --out ~/.codex/instagram/swipe.md
 ```
 
 ## The one idea that makes this worthwhile
@@ -88,11 +105,11 @@ It's a legitimate second source, and the spoken hook is easier to get:
 
 ```bash
 # view counts for a channel's shorts
-python3 -m yt_dlp --flat-playlist --playlist-end 40 -J \
+python -X utf8 -m yt_dlp --flat-playlist --playlist-end 40 -J \
   "https://www.youtube.com/@HANDLE/shorts" > channel.json
 
 # the spoken first line of one short, from its auto-captions
-python3 -m yt_dlp --skip-download --write-auto-subs --sub-langs "en.*" \
+python -X utf8 -m yt_dlp --skip-download --write-auto-subs --sub-langs "en.*" \
   --sub-format json3 -o hook "https://www.youtube.com/watch?v=VIDEO_ID"
 ```
 
@@ -109,11 +126,11 @@ account	followers	median	views	hook
 ```
 
 ```bash
-python3 swipe.py captured.tsv --out ~/.claude/instagram/swipe.md
+python -X utf8 swipe.py captured.tsv --out ~/.codex/instagram/swipe.md
 ```
 
 It works out the outlier multiple, names the hook formula using the same 26
-formulas `/ig-reel` writes from, scores each hook with `hookscore.py`, and
+formulas `$ig-reel` writes from, scores each hook with `hookscore.py`, and
 prints what sets the top third apart from the bottom third.
 
 ## Step 4: explain what it means, carefully
@@ -138,7 +155,7 @@ difference between research and horoscopes.
 ## Step 5: turn it into something to film
 
 For the top three formulas, write **the user's own version**: their story,
-their number, in the shape that's working. Pass each one to `/ig-reel` with the
+their number, in the shape that's working. Pass each one to `$ig-reel` with the
 formula id already picked.
 
 Never hand back "make a reel like this one". Hand back a hook line they could
@@ -168,8 +185,8 @@ YOUR VERSION
   ...
 ```
 
-Save the swipe file to `~/.claude/instagram/swipe.md`. `/ig-reel` and
-`/ig-plan` both read it, and that's the point: after one run, the rest of the
+Save the swipe file to `~/.codex/instagram/swipe.md`. `$ig-reel` and
+`$ig-plan` both read it, and that's the point: after one run, the rest of the
 pack works from the user's own evidence instead of defaults.
 
 This skill doesn't post, follow, like or message anything. It only reads.

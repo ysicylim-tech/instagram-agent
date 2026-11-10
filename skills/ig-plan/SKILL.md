@@ -9,13 +9,30 @@ description: >-
 
 # ig-plan
 
+## Codex execution
+
+Resolve scripts and JSON resources relative to this SKILL.md, never the
+project working directory. Invoke scripts by their absolute paths with a
+Python 3 interpreter and `-X utf8` (use `python3` or `py -3` if needed).
+Examples below abbreviate the script path. Use absolute input/output paths
+and UTF-8 text files; expand `~` to the user's home directory.
+
+Shared profile, plan, log and swipe files live in `~/.codex/instagram/`;
+create that directory before writing. To hand work to `$ig-*`, read the
+corresponding sibling skill's SKILL.md and follow it; do not execute a slash
+command or assume a Claude tool exists. Use available search/browser tools
+when research is needed; if access or data is missing, request supplied
+material and disclose the limitation rather than inventing results.
+Drafting content does not authorize posting, sending DMs or comments.
+
+
 This is mission control. The rest of the pack does the work; this decides what
 work gets done. Run it once a week, same day each time.
 
 ## Input
 
-If `~/.claude/instagram/voice.md`, `swipe.md` and `log.md` exist, read them. The
-swipe file is the user's own proof from `/ig-viral` of which formulas are
+If `~/.codex/instagram/voice.md`, `swipe.md` and `log.md` exist, read them. The
+swipe file is the user's own proof from `$ig-viral` of which formulas are
 working in their niche right now, and it beats anything written in this file.
 The log keeps the plan from repeating a theme from the past two weeks.
 
@@ -73,7 +90,7 @@ Twenty minutes a day, before posting, not after. Build a list of ten:
 - **2 buyers** - people who could actually buy. Comment for weeks before any DM,
   and never pitch in the comments.
 
-Pass the list to `/ig-comment`.
+Pass the list to `$ig-comment`.
 
 ## Output
 
@@ -96,5 +113,5 @@ ENGAGE  (5 reach / 3 peers / 2 buyers)
 Say "write Tuesday" and I'll draft it.
 ```
 
-Save the plan to `~/.claude/instagram/plan.md` so the other skills can read it.
+Save the plan to `~/.codex/instagram/plan.md` so the other skills can read it.
 Nothing gets scheduled or posted. It's a plan, and the user carries it out.

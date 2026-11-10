@@ -9,6 +9,23 @@ description: >-
 
 # ig-comment
 
+## Codex execution
+
+Resolve scripts and JSON resources relative to this SKILL.md, never the
+project working directory. Invoke scripts by their absolute paths with a
+Python 3 interpreter and `-X utf8` (use `python3` or `py -3` if needed).
+Examples below abbreviate the script path. Use absolute input/output paths
+and UTF-8 text files; expand `~` to the user's home directory.
+
+Shared profile, plan, log and swipe files live in `~/.codex/instagram/`;
+create that directory before writing. To hand work to `$ig-*`, read the
+corresponding sibling skill's SKILL.md and follow it; do not execute a slash
+command or assume a Claude tool exists. Use available search/browser tools
+when research is needed; if access or data is missing, request supplied
+material and disclose the limitation rather than inventing results.
+Drafting content does not authorize posting, sending DMs or comments.
+
+
 Commenting is the best twenty minutes you can spend on Instagram, and the
 easiest to waste. A comment near the top of a reel with 40,000 views gets seen
 by more people than most accounts' own posts, and it's the one spot where a
@@ -60,7 +77,7 @@ Choose by what the post really is. Never default to type 1.
 ## Output
 
 Give **two options of different types**, labelled, and one line on which you'd
-post and why. Run both through `/ig-human` first. Comments are short, so an em
+post and why. Run both through `$ig-human` first. Comments are short, so an em
 dash or a stock phrase stands out even more than in a caption.
 
 ```
@@ -81,7 +98,7 @@ Post the first one. It gives something away and it has a number.
 
 For an engagement round, ask for 5 to 10 posts pasted in one message, send back
 one comment for each in a single block, and keep a running list in
-`~/.claude/instagram/log.md` of who's been commented on this week. Commenting on
+`~/.codex/instagram/log.md` of who's been commented on this week. Commenting on
 the same three accounts every day is obvious, and it looks like exactly what it
 is.
 
